@@ -6,7 +6,7 @@ import Home from './pages/home/home';
 import Dashboards from './pages/dashboards/dashboard';
 
 //components
-import Nav from './components/nav';
+import Nav from './components/nav/nav';
 
 function App() {
 
