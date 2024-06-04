@@ -1,0 +1,24 @@
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-banner {
+    width: 70%;
+    height: 60vh;
+    display: flex;
+    box-shadow: 10px 10px 10px 5px rgb(211, 211, 211);
+    border-radius: 30px;
+}
+
+.banner {
+    width: 30%;
+    height: 100%;
+    background-image: url(./assets/banner.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
