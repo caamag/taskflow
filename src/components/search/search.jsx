@@ -1,7 +1,9 @@
 
 import './search.css'
 
+//hooks
 import { useState } from 'react';
+import { useAuthentication } from '../../hooks/useAuthentication';
 
 //images
 import searchIcon from '../assets/search.png'
@@ -9,7 +11,10 @@ import settingsIcon from '../assets/settings.png'
 
 const Search = () => {
 
-    const [keyword, setKeyword] = useState('');
+    const [keyword, setKeyword] = useState('')
+    const [settings, setSettings] = useState(false)
+
+    const { logout } = useAuthentication()
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -30,7 +35,17 @@ const Search = () => {
                 </div>
             </form>
 
-            <button className='settings-btn'><img src={settingsIcon} alt="" /></button>
+            <button className='settings-btn' onClick={() => {
+                if (settings) {
+                    setSettings(false)
+                } else {
+                    setSettings(true)
+                }
+            }}><img src={settingsIcon} alt="" /></button>
+
+            {settings && <ul className='settings-list'>
+                <li><button onClick={logout}>Sair</button></li>
+            </ul>}
 
         </div>
     </div>

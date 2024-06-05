@@ -35,3 +35,9 @@ input {
 input:focus {
     outline: none;
 }
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}

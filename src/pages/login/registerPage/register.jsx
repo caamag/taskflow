@@ -1,17 +1,35 @@
-
 import './register.css'
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useAuthentication } from '../../../hooks/useAuthentication';
 
 const Register = ({ setLogin }) => {
-
-    function handleSubmit(e) {
-        e.preventDefault()
-    }
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
+    const [error, setError] = useState('')
+
+    const { createUser, error: authError, loading } = useAuthentication();
+
+    async function handleSubmit(e) {
+        e.preventDefault()
+
+        const user = {
+            name,
+            email,
+            pass,
+        }
+
+        const res = await createUser(user)
+        console.log(res);
+    }
+
+    useEffect(() => {
+        if (authError) {
+            setError(authError)
+        }
+    }, [authError])
 
     return <div className='login-content'>
         <form onSubmit={handleSubmit}>
@@ -20,16 +38,19 @@ const Register = ({ setLogin }) => {
             <input type="text"
                 placeholder='Informe o seu nome:'
                 value={name}
+                required
                 onChange={(e) => { setName(e.target.value) }} /><br /><br />
 
             <input type="email"
                 placeholder='Informe um email válido:'
                 value={email}
+                required
                 onChange={(e) => { setEmail(e.target.value) }} /><br /><br />
 
             <input type="password"
                 placeholder='Crie um senha:'
                 value={pass}
+                required
                 onChange={(e) => { setPass(e.target.value) }} /><br /><br />
 
             <button type='submit'>Criar conta</button><br /><br />
