@@ -1,24 +1,31 @@
 .login-container {
+    width: 100% !important;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(to right, rgb(41, 41, 41) 50%, rgb(255, 255, 255) 50%);
 }
 
 .login-banner {
-    width: 70%;
+    width: 50%;
     height: 60vh;
     display: flex;
-    box-shadow: 10px 10px 10px 5px rgb(211, 211, 211);
     border-radius: 30px;
+    box-shadow: 2px 5px 40px rgb(20, 20, 20);
+}
+
+.login-banner div {
+    width: 50%;
+    height: 100%;
 }
 
 .banner {
-    width: 30%;
-    height: 100%;
-    background-image: url(./assets/banner.jpeg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner img {
+    width: 45%;
+    height: auto;
 }
