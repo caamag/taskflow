@@ -15,6 +15,7 @@
 }
 
 .login-banner div {
+    position: relative;
     width: 50%;
     height: 100%;
 }
@@ -28,4 +29,15 @@
 .banner img {
     width: 45%;
     height: auto;
+}
+
+.login-error-box {
+    margin-top: 5px;
+    height: 30px !important;
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(232, 61, 61, 0.4);
+    font-size: 1.4rem;
 }

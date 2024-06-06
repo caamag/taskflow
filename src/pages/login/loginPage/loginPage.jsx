@@ -13,6 +13,7 @@ const LoginPage = ({ setLogin }) => {
 
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
+    const [error, setError] = useState(false)
 
     return <div className='login-content'>
         <form onSubmit={handleSubmit}>
