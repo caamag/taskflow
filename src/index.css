@@ -6,6 +6,10 @@
 html {
     scroll-behavior: smooth;
     font-size: 62.5%;
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .container {
@@ -40,4 +44,6 @@ button {
     background: none;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
+    transition: 150ms;
 }

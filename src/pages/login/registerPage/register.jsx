@@ -1,5 +1,3 @@
-import './register.css'
-
 import { useEffect, useState } from 'react';
 import { useAuthentication } from '../../../hooks/useAuthentication';
 
@@ -53,9 +51,10 @@ const Register = ({ setLogin }) => {
                 required
                 onChange={(e) => { setPass(e.target.value) }} /><br /><br />
 
-            <button type='submit'>Criar conta</button><br /><br />
-
-            <button onClick={() => { setLogin(true) }}>Ja tenho conta</button>
+            <div className='btn-divider'>
+                <button className='change-form-btn' onClick={() => { setLogin(true) }}>Ja tenho conta</button>
+                <button type='submit' className='login-btn'>Criar conta</button><br /><br />
+            </div>
 
         </form>
     </div>

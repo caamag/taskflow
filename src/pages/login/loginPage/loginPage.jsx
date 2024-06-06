@@ -16,21 +16,22 @@ const LoginPage = ({ setLogin }) => {
 
     return <div className='login-content'>
         <form onSubmit={handleSubmit}>
-            <h1>Bem-vindo de volta!</h1>
+            <h1>Entrar</h1>
 
             <input type="email"
                 placeholder='Informe o seu email:'
                 value={email}
-                onChange={(e) => { setEmail(e.target.value) }} /><br /><br />
+                onChange={(e) => { setEmail(e.target.value) }} /><br />
 
             <input type="password"
                 placeholder='Informe a sua senha'
                 value={pass}
-                onChange={(e) => { setPass(e.target.value) }} /><br /><br />
+                onChange={(e) => { setPass(e.target.value) }} /><br />
 
-            <button type='submit'>Entrar</button><br /><br />
-
-            <button onClick={() => { setLogin(false) }}>Criar conta</button>
+            <div className='btn-divider'>
+                <button className='change-form-btn' onClick={() => { setLogin(false) }}>Criar conta</button>
+                <button type='submit' className='login-btn'>Entrar</button><br />
+            </div>
 
         </form>
     </div>
