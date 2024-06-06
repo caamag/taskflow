@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useAuthentication } from '../../../hooks/useAuthentication';
 
+import loadingIcon from '../assets/loading.jpg'
+
 const Register = ({ setLogin }) => {
 
     const [name, setName] = useState('')
@@ -10,7 +12,7 @@ const Register = ({ setLogin }) => {
     const [systemError, setSystemError] = useState(false)
     const [error, setError] = useState('')
 
-    const { createUser, error: authError, loading } = useAuthentication();
+    const { createUser, error: authError } = useAuthentication();
 
     async function handleSubmit(e) {
         e.preventDefault()
