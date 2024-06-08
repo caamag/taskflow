@@ -13,9 +13,13 @@ import { AuthProvider } from './context/authContext';
 import Home from './pages/home/home';
 import Dashboards from './pages/dashboards/dashboards';
 import Login from './pages/login/login';
+import Profile from './pages/profile/profile';
 
 //components
 import Nav from './components/nav/nav';
+
+//images
+import loading from '../public/loading.jpg'
 
 
 function App() {
@@ -31,7 +35,9 @@ function App() {
 
   const loadingUser = user === undefined;
   if (loadingUser) {
-    return <p>carregando...</p>
+    return <>
+      <img src={loading} className='loading-initial' />
+    </>
   }
 
   return <div className='App'>
@@ -42,6 +48,7 @@ function App() {
           <Route path='/login' element={!user ? <Login /> : <Navigate to={'/'} />} ></Route>
           <Route path='/' element={user ? <Home /> : <Navigate to={'/login'} />}></Route>
           <Route path='/dashboards' element={user ? <Dashboards /> : <Navigate to={'/login'} />}></Route>
+          <Route path='/currentUser/account' element={user ? <Profile /> : <Navigate to={'/login'} />}></Route>
         </Routes>
       </BrowserRouter>
     </AuthProvider>

@@ -80,13 +80,23 @@
     width: 150px;
     position: absolute;
     right: 0px;
-    bottom: -35px;
+    bottom: -105px;
+    padding: 20px 0px;
     background-color: rgb(240, 240, 240);
 }
 
 .settings-list li {
     width: 100%;
     list-style: none;
+}
+
+.settings-list a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .settings-list button {
@@ -98,6 +108,11 @@
 }
 
 .settings-list button:hover {
-    background-color: rgb(242, 47, 47);
-    color: white;
+    background-color: rgb(215, 215, 215);
+    border-radius: 0px !important;
+}
+
+.logout-btn:hover {
+    background-color: rgb(242, 47, 47) !important;
+    color: white !important;
 }

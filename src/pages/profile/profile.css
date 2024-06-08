@@ -1,0 +1,86 @@
+.profile-container {
+    display: flex;
+}
+
+.photo-container {
+    width: 30%;
+    height: 100%;
+    text-align: center;
+}
+
+.photo-container button {
+    width: 150px;
+    height: 35px;
+    color: white;
+    border-radius: 0px;
+    background-color: rgb(41, 41, 41);
+    margin-top: 20px;
+    font-size: 1.4rem;
+}
+
+.photo-container button:hover {
+    width: 160px;
+}
+
+.profile-photo {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+    border: solid 5px rgb(41, 41, 41);
+    border-radius: 100%;
+    background-size: 120%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.profile-form {
+    width: 70%;
+    height: 100%;
+}
+
+.picture-form {
+    margin-top: 30px;
+}
+
+.picture-form input {
+    padding: 10px;
+    box-shadow: 2px 2px 2px rgb(209, 209, 209);
+}
+
+.picture-form input:focus {
+    border: 1px solid rgb(41, 41, 41);
+}
+
+.close-picture-form-btn {
+    width: 50px !important;
+}
+
+.close-picture-form-btn:hover {
+    background-color: rgb(80, 80, 80);
+}
+
+.error-message {
+    background-color: rgb(215, 84, 84, 0.3);
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 1.4rem;
+    padding: 5px;
+}
+
+.loading-change-photo {
+    width: 45px;
+    height: auto;
+    animation: loading infinite linear 350ms;
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -81,6 +81,25 @@ export const useAuthentication = () => {
         }
     }
 
+    const updateProfilePicture = async (photoURL) => {
+        checkIsCancelled()
+        setLoading(true)
+        setError(false)
+
+        try {
+            const user = auth.currentUser;
+            if (user) {
+                await updateProfile(user, { photoURL })
+                setLoading(false)
+                console.log(user);
+                return user;
+            }
+        } catch (error) {
+            console.log(error.message);
+            setLoading(false)
+        }
+    }
+
     useEffect(() => {
         return () => setCancelled(true);
     }, [])
@@ -90,6 +109,7 @@ export const useAuthentication = () => {
         createUser,
         logout,
         login,
+        updateProfilePicture,
         error,
         loading
     }

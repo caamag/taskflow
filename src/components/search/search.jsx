@@ -4,6 +4,7 @@ import './search.css'
 //hooks
 import { useState } from 'react';
 import { useAuthentication } from '../../hooks/useAuthentication';
+import { NavLink } from 'react-router-dom';
 
 //images
 import searchIcon from '../assets/search.png'
@@ -44,7 +45,8 @@ const Search = () => {
             }}><img src={settingsIcon} alt="" /></button>
 
             {settings && <ul className='settings-list'>
-                <li><button onClick={logout}>Sair</button></li>
+                <li><button><NavLink to={'/currentUser/account'}>Conta</NavLink></button></li>
+                <li><button onClick={logout} className='logout-btn'>Sair</button></li>
             </ul>}
 
         </div>

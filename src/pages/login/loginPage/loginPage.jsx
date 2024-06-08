@@ -39,10 +39,11 @@ const LoginPage = ({ setLogin }) => {
                 onChange={(e) => { setPass(e.target.value) }}
                 required /><br />
 
-            <div className='btn-divider'>
+            {!authloading && <div className='btn-divider'>
                 <button className='change-form-btn' onClick={() => { setLogin(false) }}>Criar conta</button>
                 <button type='submit' className='login-btn'>Entrar</button><br />
-            </div>
+            </div>}
+
             {authloading && <img src={loadingIcon} alt="" className='loading-icon' />}
             {authError && <div className='login-error-box'>{authError}</div>}
         </form>

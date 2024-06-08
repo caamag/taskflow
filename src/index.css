@@ -40,6 +40,10 @@ input:focus {
     outline: none;
 }
 
+input::placeholder {
+    color: rgb(180, 180, 180);
+}
+
 button {
     background: none;
     border: none;
