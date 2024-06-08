@@ -32,6 +32,9 @@ const Profile = () => {
         setformPicture(false)
     }
 
+    //profile form
+    console.log(user);
+
     return <div className='container profile-container'>
         <div className='photo-container'>
             <div className='profile-photo' style={{
@@ -63,7 +66,11 @@ const Profile = () => {
         </div>
 
         <form className='profile-form'>
+            <h1>Meu Perfil</h1>
 
+            <label>
+
+            </label>
         </form>
     </div>
 

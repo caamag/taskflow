@@ -23,8 +23,8 @@
 }
 
 .profile-photo {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     margin: 0 auto;
     margin-top: 50px;
     border: solid 5px rgb(41, 41, 41);
@@ -83,4 +83,11 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+
+/*profile form*/
+.profile-form h1 {
+    margin-top: 50px;
+    font-weight: bold !important;
 }
