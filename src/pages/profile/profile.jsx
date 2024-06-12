@@ -1,5 +1,6 @@
 
 import { useAuthentication } from '../../hooks/useAuthentication';
+import { useUpdate } from '../../hooks/updateNameAndTel'
 import './profile.css'
 
 import { useState } from 'react';
@@ -33,7 +34,19 @@ const Profile = () => {
     }
 
     //profile form
-    console.log(user);
+    const [name, setName] = useState('');
+    const [lastName, setLastName] = useState('')
+    const [tel, setTel] = useState('');
+    const { loading: profileLoading, error: profileError, updateDisplayName } = useUpdate()
+
+    const firstName = user.displayName ? user.displayName.split(' ')[0] : ''
+    const secondName = user.displayName ? user.displayName.split(' ')[1] : ''
+
+    async function handleProfileContent(e) {
+        e.preventDefault()
+        const userName = `${name} ${lastName}`
+        await updateDisplayName(userName)
+    }
 
     return <div className='container profile-container'>
         <div className='photo-container'>
@@ -41,6 +54,7 @@ const Profile = () => {
                 backgroundImage: `url(${user.photoURL ? user.photoURL : defaultURLPhoto})`,
                 filter: `${user.photoURL ? 'invert(0%)' : 'invert(80%)'}`
             }}></div>
+            <h3 className='user-name'>{user.displayName}</h3>
 
             {!formPicture && <button onClick={() => { setformPicture(true) }}>Mudar Imagem</button>}
 
@@ -65,12 +79,55 @@ const Profile = () => {
             </form>}
         </div>
 
-        <form className='profile-form'>
+        <form className='profile-form' onSubmit={handleProfileContent}>
             <h1>Meu Perfil</h1>
+            <div>
+                <label>
+                    PRIMEIRO NOME <br />
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => { setName(e.target.value) }}
+                        placeholder={firstName ? firstName : '...'}
+                        required
+                    />
+                </label>
 
-            <label>
+                <label>
+                    SEGUNDO NOME <br />
+                    <input
+                        type="text"
+                        value={lastName}
+                        onChange={(e) => { setLastName(e.target.value) }}
+                        placeholder={secondName ? secondName : '...'}
+                        required
+                    />
+                </label>
+            </div>
 
-            </label>
+            <div>
+                <label>
+                    E-MAIL <br />
+                    <input
+                        type="text"
+                        placeholder={user.email}
+                        required
+                        disabled
+                    />
+                </label>
+
+                <label>
+                    TELEFONE <br />
+                    <input
+                        type="number"
+                        value={tel}
+                        onChange={(e) => { setTel(e.target.value) }}
+                        placeholder='...'
+                    />
+                </label>
+            </div>
+
+            <button type='submit' className='update-profile'>Atualizar</button>
         </form>
     </div>
 

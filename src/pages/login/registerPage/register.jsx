@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAuthentication } from '../../../hooks/useAuthentication';
 
-import loadingIcon from '../assets/loading.jpg'
-
 const Register = ({ setLogin }) => {
 
     const [name, setName] = useState('')

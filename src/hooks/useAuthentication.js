@@ -32,9 +32,6 @@ export const useAuthentication = () => {
                 data.pass
             )
 
-            await updateProfile(user, {
-                displayName: data.name
-            })
             setLoading(false)
             return user;
         } catch (error) {
@@ -91,11 +88,9 @@ export const useAuthentication = () => {
             if (user) {
                 await updateProfile(user, { photoURL })
                 setLoading(false)
-                console.log(user);
                 return user;
             }
         } catch (error) {
-            console.log(error.message);
             setLoading(false)
         }
     }
