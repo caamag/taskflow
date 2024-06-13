@@ -36,22 +36,6 @@ export const useUpdate = () => {
         }
     }
 
-    //update phoneNumber
-    const updatePhoneNumber = async () => {
-        checkIsCancelled()
-        setLoading(true)
-        setError(false)
-
-        try {
-            const user = auth.currentUser
-            if (user) {
-
-            }
-        } catch (error) {
-
-        }
-    }
-
     useEffect(() => {
         return () => setCancelled(true)
     }, [])
