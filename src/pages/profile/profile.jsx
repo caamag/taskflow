@@ -37,13 +37,14 @@ const Profile = () => {
     const [name, setName] = useState('');
     const [lastName, setLastName] = useState('')
     const [tel, setTel] = useState('');
-    const { loading: profileLoading, error: profileError, updateDisplayName } = useUpdate()
+    const { loading: profileLoading, updateDisplayName } = useUpdate()
 
     const firstName = user.displayName ? user.displayName.split(' ')[0] : ''
     const secondName = user.displayName ? user.displayName.split(' ')[1] : ''
 
     async function handleProfileContent(e) {
         e.preventDefault()
+
         const userName = `${name} ${lastName}`
         await updateDisplayName(userName)
     }
@@ -54,7 +55,8 @@ const Profile = () => {
                 backgroundImage: `url(${user.photoURL ? user.photoURL : defaultURLPhoto})`,
                 filter: `${user.photoURL ? 'invert(0%)' : 'invert(80%)'}`
             }}></div>
-            <h3 className='user-name'>{user.displayName}</h3>
+            {profileLoading && <img src={loadingIcon} className='profile-loading' />}<br />
+            {!profileLoading && <h3 className='user-name'>{user.displayName}</h3>}
 
             {!formPicture && <button onClick={() => { setformPicture(true) }}>Mudar Imagem</button>}
 
@@ -115,19 +117,14 @@ const Profile = () => {
                         disabled
                     />
                 </label>
-
-                <label>
-                    TELEFONE <br />
-                    <input
-                        type="number"
-                        value={tel}
-                        onChange={(e) => { setTel(e.target.value) }}
-                        placeholder='...'
-                    />
-                </label>
             </div>
 
-            <button type='submit' className='update-profile'>Atualizar</button>
+            {profileLoading && <img src={loadingIcon} className='profile-loading' />}
+            {!profileLoading && <button type='submit' className='update-profile'>Atualizar</button>}
+
+            <h4>Dados da conta:</h4>
+            <p>Data de criação da conta:  {user.metadata.creationTime}</p>
+            <p>Último login: {user.metadata.lastSignInTime}</p>
         </form>
     </div>
 

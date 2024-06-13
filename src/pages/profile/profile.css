@@ -135,3 +135,22 @@
     margin-top: 10px;
     font-weight: 400;
 }
+
+.profile-loading {
+    width: 25px;
+    height: auto;
+    margin-top: 30px;
+    animation: loading infinite linear 350ms;
+}
+
+.profile-form h4 {
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: gray;
+}
+
+.profile-form p {
+    color: rgb(170, 170, 170);
+    font-size: 1.2rem;
+}
