@@ -11,9 +11,10 @@ import { AuthProvider } from './context/authContext';
 
 //pages
 import Home from './pages/home/home';
-import Dashboards from './pages/dashboards/dashboards';
 import Login from './pages/login/login';
 import Profile from './pages/profile/profile';
+import Customers from './pages/customers/customers';
+import CreateCustomer from './pages/createCustomer/createCustomer';
 
 //components
 import Nav from './components/nav/nav';
@@ -47,8 +48,9 @@ function App() {
         <Routes>
           <Route path='/login' element={!user ? <Login /> : <Navigate to={'/'} />} ></Route>
           <Route path='/' element={user ? <Home /> : <Navigate to={'/login'} />}></Route>
-          <Route path='/dashboards' element={user ? <Dashboards /> : <Navigate to={'/login'} />}></Route>
           <Route path='/currentUser/account' element={user ? <Profile /> : <Navigate to={'/login'} />}></Route>
+          <Route path='/customers' element={user ? <Customers /> : <Navigate to={'/login'} />}></Route>
+          <Route path='/customer/create' element={user ? <CreateCustomer /> : <Navigate to={'/login'} />}></Route>
         </Routes>
       </BrowserRouter>
     </AuthProvider>

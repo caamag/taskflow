@@ -20,14 +20,8 @@ const Nav = () => {
 
         <h3 className='nav-subtitle'>Clientes</h3>
         <ul className='navigate-list'>
-            <NavLink to={'/meusclientes'}><li>Meus Clientes</li></NavLink>
-            <NavLink to={'/novocliente'}><li>Novo Cliente</li></NavLink>
-        </ul>
-
-        <h3 className='nav-subtitle'>Usuário</h3>
-        <ul className='navigate-list'>
-            <NavLink to={'/usuarios'}><li>Usuários</li></NavLink>
-            <NavLink to={'/novousuario'}><li>Novo Usuário</li></NavLink>
+            <NavLink to={'/customers'}><li>Meus Clientes</li></NavLink>
+            <NavLink to={'/customer/create'}><li>Novo Cliente</li></NavLink>
         </ul>
     </nav>
 
