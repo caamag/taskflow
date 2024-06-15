@@ -1,6 +1,7 @@
 
 import { useAuthentication } from '../../hooks/useAuthentication';
 import { useUpdate } from '../../hooks/updateNameAndTel'
+import { formatDate } from '../../hooks/formatDate'
 import './profile.css'
 
 import { useState } from 'react';
@@ -123,8 +124,8 @@ const Profile = () => {
             {!profileLoading && <button type='submit' className='update-profile'>Atualizar</button>}
 
             <h4>Dados da conta:</h4>
-            <p>Data de criação da conta:  {user.metadata.creationTime}</p>
-            <p>Último login: {user.metadata.lastSignInTime}</p>
+            <p>Data de criação da conta:  {formatDate(user.metadata.creationTime)}</p>
+            <p>Último login: {formatDate(user.metadata.lastSignInTime)}</p>
         </form>
     </div>
 
