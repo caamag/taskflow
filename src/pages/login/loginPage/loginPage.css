@@ -34,6 +34,12 @@
     animation: fadeInInputLogin 400ms;
 }
 
+@media screen and (max-width: 1200px) {
+    .login-content input {
+        width: 80%;
+    }
+}
+
 .login-content input:focus {
     border: solid 1px rgb(41, 41, 41);
 }
@@ -47,6 +53,13 @@
     margin-top: 20px;
     position: relative;
     animation: fadeInInputLogin 400ms;
+}
+
+@media screen and (max-width: 1200px) {
+    .btn-divider {
+        width: 80% !important;
+        margin-top: 5px;
+    }
 }
 
 .login-btn {

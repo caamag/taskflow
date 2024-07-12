@@ -3,7 +3,6 @@ import { useAuthentication } from '../../../hooks/useAuthentication';
 
 const Register = ({ setLogin }) => {
 
-    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
     const [passConfirm, setPassconfirm] = useState('')
@@ -23,7 +22,6 @@ const Register = ({ setLogin }) => {
         }
 
         const user = {
-            name,
             email,
             pass,
         }
@@ -44,12 +42,6 @@ const Register = ({ setLogin }) => {
     return <div className='login-content'>
         <form onSubmit={handleSubmit}>
             <h1>Novo por aqui?</h1>
-
-            <input type="text"
-                placeholder='Diga-me o seu nome:'
-                value={name}
-                required
-                onChange={(e) => { setName(e.target.value) }} /><br />
 
             <input type="email"
                 placeholder='Informe um email válido:'
