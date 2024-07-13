@@ -1,0 +1,80 @@
+.create-user-container {
+
+    & h2 {
+        margin: 40px 0px 5px 40px;
+        animation: fadeInInput 400ms;
+    }
+
+    & p {
+        margin-left: 40px;
+        animation: fadeInInput 400ms;
+    }
+
+    & form {
+        margin-top: 50px;
+    }
+
+    & label {
+        font-size: 1.4rem;
+        margin-left: 40px;
+        animation: fadeInInput 400ms;
+    }
+
+    & input {
+        width: 400px;
+        padding: 10px;
+        background-color: rgb(225, 225, 225);
+        font-size: 1.8rem;
+        font-family: "Manrope", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        color: rgb(96, 96, 96);
+        margin-bottom: 15px;
+        margin-left: 40px;
+        animation: fadeInInput 400ms;
+    }
+
+    & input:focus {
+        border: solid 1px rgb(40, 40, 40);
+    }
+
+    & button {
+        margin: 20px 10px 0px 0px;
+        width: 150px;
+        height: 35px;
+        color: white;
+        background-color: rgb(40, 40, 40);
+        border-radius: 0px;
+        font-size: 1.4rem;
+    }
+
+    & .clear-button {
+        background: none;
+        color: rgb(40, 40, 40);
+        border: solid 1px rgb(40, 40, 40);
+        margin-left: 40px;
+    }
+
+    & button:hover {
+        width: 160px;
+    }
+}
+
+.loading-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 100px;
+}
+
+@keyframes fadeInInput {
+    0% {
+        opacity: 0;
+        margin-left: 10px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-left: 40px;
+    }
+}
