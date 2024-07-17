@@ -57,6 +57,38 @@ button {
     transition: 150ms;
 }
 
+.sub-title {
+    margin: 40px 0px 5px 40px;
+    animation: fadeInInput 400ms;
+}
+
+.description {
+    margin-left: 40px;
+    animation: fadeInInput 400ms;
+}
+
+@keyframes fadeInInput {
+    0% {
+        opacity: 0;
+        margin-left: 10px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-left: 40px;
+    }
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 @media screen and (max-width: 1200px) {
     h1 {
         font-size: 3rem;

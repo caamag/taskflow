@@ -8,7 +8,13 @@
 }
 
 .logo-link {
-    width: 60%;
+    width: 70%;
+}
+
+@media screen and (max-width: 1200px) {
+    .logo-link {
+        width: 100%;
+    }
 }
 
 .logo {

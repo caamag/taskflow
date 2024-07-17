@@ -70,6 +70,7 @@ const CreateCustomer = () => {
             })
 
             setSuccess(true)
+            clearFields();
             setLoading(false)
             setTimeout(() => {
                 setSuccess(false);
@@ -85,8 +86,8 @@ const CreateCustomer = () => {
     }
 
     return <div className='container create-user-container'>
-        <h2>Adicionar novo cliente</h2>
-        <p>Adicione novos clientes e relacione-os com os seus novos projetos.</p>
+        <h2 className='sub-title'>Adicionar novo cliente</h2>
+        <p className='description'>Adicione novos clientes e relacione-os com os seus novos projetos.</p>
 
         {error && <PopupError errorMessage={errorMessage} />}
         {success && <PopupSuccess successMessage={'Cliente criado com sucesso!'} />}
@@ -126,7 +127,7 @@ const CreateCustomer = () => {
             </label>
 
             <label>
-                Telefone secundário (opcional):<br />
+                Telefone alternativo (opcional):<br />
                 <input
                     type="tel"
                     value={secondTell}
