@@ -4,18 +4,27 @@ import { useAuthValue } from '../../context/authContext'
 import { useState, useEffect, useId } from 'react'
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../../firebase/config'
+import CustomerCard from '../../components/customerCard/card'
 
 //images
 import searchIcon from './assets/search.png'
 import defaultAvatar from './assets/avatar.png'
 import loadingIcon from '../../../public/loading.jpg'
-import deleteIcon from '../../../public/delete-icon.png'
 
 const Customers = () => {
 
     const [customers, setCustomers] = useState([])
     const [loading, setLoading] = useState(false)
     const { user } = useAuthValue()
+
+    const [card, setCard] = useState(false);
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [tel, setTel] = useState('')
+    const [secondTell, setSecondTell] = useState('')
+    const [cnpj, setCnpj] = useState('')
+    const [corporateReason, setCorporateReason] = useState('')
+    const [logo, setLogo] = useState('')
 
     useEffect(() => {
         const getCustomers = async () => {
@@ -44,7 +53,17 @@ const Customers = () => {
         </div>
 
         {!loading && customers.map(customer => (
-            <div className='customer-details'>
+            <div className='customer-details' onClick={() => {
+                setCard(true)
+                setName(customer.name)
+                setEmail(customer.email)
+                setCorporateReason(customer.corporateReason)
+                setTel(customer.tel)
+                setSecondTell(customer.secondTell)
+                setCnpj(customer.cnpj)
+                setLogo(customer.logo)
+            }
+            }>
                 <img src={customer.logo ? customer.logo : defaultAvatar} alt="" className='avatar' />
                 <div className='customer-data-container'>
                     <p>{customer.name}</p>
@@ -56,6 +75,16 @@ const Customers = () => {
             </div>
         ))}
 
+        {card && <CustomerCard
+            setCard={setCard}
+            name={name}
+            email={email}
+            tell={tel}
+            secondTell={secondTell}
+            cnpj={cnpj}
+            corporateReason={corporateReason}
+            logo={logo}
+        />}
         {loading && <img src={loadingIcon} alt="" className='loading-initial' />}
 
     </div>

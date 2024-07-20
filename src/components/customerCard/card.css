@@ -1,0 +1,58 @@
+.customer-card-container {
+    position: absolute;
+    position: fixed;
+    width: 85%;
+    height: 100vh;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0, 0.8);
+
+    & .card {
+        position: relative;
+        width: 50%;
+        height: 50%;
+        border-radius: 8px;
+        background-color: white;
+        display: flex;
+        justify-content: space-evenly;
+
+        & .close-card {
+            position: absolute;
+            padding: 10px 15px;
+            font-size: 1.6rem;
+            color: white;
+            right: 20px;
+            top: 20px;
+            background-color: rgb(41, 41, 41);
+        }
+
+        & div {
+            width: 40%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        & .logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 10px !important;
+            margin-top: 0px !important;
+        }
+
+        & input {
+            background-color: rgb(225, 225, 225);
+            color: rgb(96, 96, 96);
+            padding: 8px;
+            margin: 5px;
+        }
+
+        & input:focus {
+            border: 1px solid rgb(41, 41, 41);
+        }
+    }
+}
