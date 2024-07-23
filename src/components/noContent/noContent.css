@@ -1,0 +1,43 @@
+.no-content-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 50%;
+    height: 50vh;
+    background-color: white;
+    color: rgb(185, 185, 185);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+        width: 60px;
+        height: auto;
+        filter: invert(70%);
+        margin: 5px;
+    }
+
+    & h2 {
+        font-weight: 400;
+    }
+
+    & a {
+        text-decoration: none;
+        color: rgb(41, 41, 41);
+        padding: 10px;
+        margin-top: 15px;
+        border: solid 1px rgb(41, 41, 41);
+        border-radius: 5px;
+        font-size: 1.4rem;
+        transition: 150ms;
+    }
+
+    & a:hover {
+        background-color: rgb(41, 41, 41);
+        color: white;
+    }
+}

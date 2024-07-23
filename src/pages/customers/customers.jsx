@@ -5,6 +5,7 @@ import { useState, useEffect, useId } from 'react'
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../../firebase/config'
 import CustomerCard from '../../components/customerCard/card'
+import NoContent from '../../components/noContent/noContent'
 
 //images
 import searchIcon from './assets/search.png'
@@ -94,6 +95,10 @@ const Customers = () => {
                 </div>
             </div>
         ))}
+
+        {!loading && customers.length === 0 && (
+            <NoContent endpoint={'/customer/create'} linkText={'Criar novo cliente'} />
+        )}
 
         {card && <CustomerCard
             setCard={setCard}
