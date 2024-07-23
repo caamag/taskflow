@@ -53,6 +53,10 @@
         cursor: pointer;
     }
 
+    .delete {
+        display: none;
+    }
+
     .customer-details:hover {
         scale: 1.01;
     }

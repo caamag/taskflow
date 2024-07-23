@@ -26,6 +26,7 @@ const Customers = () => {
     const [corporateReason, setCorporateReason] = useState('')
     const [logo, setLogo] = useState('')
     const [customerId, setCustomerId] = useState('')
+    const [search, setSearch] = useState('')
 
     useEffect(() => {
         const getCustomers = async () => {
@@ -43,29 +44,42 @@ const Customers = () => {
         getCustomers()
     }, [])
 
+    const handleSearch = (name, email, corporateReason) => {
+        if (name.includes(search) || email.includes(search) || corporateReason.includes(search)) {
+            return ''
+        } else {
+            return 'delete'
+        }
+    }
+
     return <div className='container customer-container'>
         <h2 className='sub-title'>Meus clientes</h2>
         <p className='description'>Aqui você consegue visualizar todos os seus clientes.</p>
         <div className='search'>
             <div className='search-inner'>
                 <img src={searchIcon} alt="" />
-                <input type="text" placeholder='Pesquisar:' />
+                <input
+                    type="text"
+                    placeholder='Pesquisar:'
+                    value={search}
+                    onChange={(e) => { setSearch(e.target.value) }}
+                />
             </div>
         </div>
 
         {!loading && customers.map(customer => (
-            <div className='customer-details' onClick={() => {
-                setCard(true)
-                setName(customer.name)
-                setEmail(customer.email)
-                setCorporateReason(customer.corporateReason)
-                setTel(customer.tel)
-                setSecondTell(customer.secondTell)
-                setCnpj(customer.cnpj)
-                setLogo(customer.logo)
-                setCustomerId(customer.id)
-            }
-            }>
+            <div className={`customer-details ${handleSearch(customer.name, customer.email, customer.corporateReason)}`}
+                onClick={() => {
+                    setCard(true)
+                    setName(customer.name)
+                    setEmail(customer.email)
+                    setCorporateReason(customer.corporateReason)
+                    setTel(customer.tel)
+                    setSecondTell(customer.secondTell)
+                    setCnpj(customer.cnpj)
+                    setLogo(customer.logo)
+                    setCustomerId(customer.id)
+                }}>
                 <img
                     src={customer.logo ? customer.logo : defaultAvatar}
                     alt=""
