@@ -1,10 +1,9 @@
 import './card.css'
 import defaultLogo from '../../pages/customers/assets/avatar.png'
 import { useState } from 'react'
-import { doc, updateDoc } from 'firebase/firestore'
+import { doc, updateDoc, deleteDoc } from 'firebase/firestore'
 import { db } from '../../firebase/config'
 import { useAuthValue } from '../../context/authContext'
-import { Navigate } from 'react-router-dom'
 
 const CustomerCard = ({ setCard, name, email, tell, secondTell, cnpj, corporateReason, logo, customerId }) => {
 
@@ -15,7 +14,6 @@ const CustomerCard = ({ setCard, name, email, tell, secondTell, cnpj, corporateR
     const [newCNPJ, setNewCNPJ] = useState('')
     const [newCorporate, setNewCorporate] = useState('')
     const [newLogo, setNewLogo] = useState('')
-
     const { user } = useAuthValue()
 
     const updateCustomer = async () => {
@@ -31,12 +29,22 @@ const CustomerCard = ({ setCard, name, email, tell, secondTell, cnpj, corporateR
                 corporateReason: newCorporate ? newCorporate : corporateReason,
                 logo: newLogo ? newLogo : logo
             })
-            setCard(false)
             window.location.reload()
 
         } catch (error) {
-            console.log(error.message);
             alert('Erro ao atualizar usuário. Tente novamente mais tarde.')
+        }
+    }
+
+    const deleteUser = async () => {
+        const userID = user.uid;
+        try {
+
+            await deleteDoc(doc(db, 'users', userID, 'Clientes', customerId))
+            window.location.reload()
+
+        } catch (error) {
+            alert('Erro ao deletar, tente novamente.')
         }
     }
 
@@ -51,6 +59,9 @@ const CustomerCard = ({ setCard, name, email, tell, secondTell, cnpj, corporateR
 
             <div>
                 <form>
+                    <h2>Configurações do cliente</h2>
+                    <p>Edite informações ou delete o seu cliente.</p><br />
+
                     <input
                         type="text"
                         value={newName}
@@ -108,11 +119,18 @@ const CustomerCard = ({ setCard, name, email, tell, secondTell, cnpj, corporateR
             </div>
 
             <div className='card-btns'>
-                <button className='delete-customer'>Deletar</button>
+                <button
+                    className='delete-customer'
+                    onClick={() => { deleteUser() }}
+                >
+                    Deletar
+                </button>
 
                 <button
                     className='update-user'
-                    onClick={() => { updateCustomer() }}
+                    onClick={(e) => {
+                        updateCustomer()
+                    }}
                 >
                     Salvar
                 </button>

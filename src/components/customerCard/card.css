@@ -12,8 +12,8 @@
 
     & .card {
         position: relative;
-        width: 50%;
-        height: 50%;
+        width: 60%;
+        height: 60%;
         border-radius: 8px;
         background-color: white;
         display: flex;
@@ -88,6 +88,15 @@
             & .update-user {
                 background-color: rgb(41, 41, 41);
             }
+        }
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .customer-card-container {
+        & .card {
+            width: 75%;
+            height: 75%;
         }
     }
 }

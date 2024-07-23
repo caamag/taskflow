@@ -66,7 +66,8 @@ const Customers = () => {
                 setCustomerId(customer.id)
             }
             }>
-                <img src={customer.logo ? customer.logo : defaultAvatar}
+                <img
+                    src={customer.logo ? customer.logo : defaultAvatar}
                     alt=""
                     className={customer.logo ? 'avatar avatar-logo' : 'avatar'}
                 />
