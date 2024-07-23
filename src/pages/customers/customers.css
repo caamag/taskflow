@@ -64,6 +64,10 @@
         margin-left: 30px;
     }
 
+    .avatar-logo {
+        filter: invert(0%) !important;
+    }
+
     .customer-data-container {
         width: 90%;
         height: 100%;

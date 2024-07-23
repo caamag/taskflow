@@ -170,7 +170,7 @@ const CreateCustomer = () => {
 
             {!loading && <>
                 <button onClick={clearFields} className='clear-button'>Limpar dados</button>
-                <button>Criar cliente</button>
+                <button>Criar cliente</button><br /><br />
             </>}
 
             {loading && <img alt='loading-icon' src={loadingIcon} className='loading-icon' />}

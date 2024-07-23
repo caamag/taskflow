@@ -29,6 +29,10 @@
             background-color: rgb(41, 41, 41);
         }
 
+        & .close-card:hover {
+            background-color: rgb(60, 60, 60);
+        }
+
         & div {
             width: 40%;
             height: 100%;
@@ -45,14 +49,45 @@
         }
 
         & input {
+            width: 100%;
             background-color: rgb(225, 225, 225);
             color: rgb(96, 96, 96);
             padding: 8px;
             margin: 5px;
+            border-radius: 5px;
         }
 
         & input:focus {
             border: 1px solid rgb(41, 41, 41);
+        }
+
+        & .card-btns {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            width: 300px;
+            height: 35px;
+            display: flex;
+            flex-direction: row;
+
+            & button {
+                width: 50%;
+                height: 100%;
+                margin: 3px;
+                color: white
+            }
+
+            & button:hover {
+                width: 52%;
+            }
+
+            & .delete-customer {
+                background-color: rgb(255, 60, 60);
+            }
+
+            & .update-user {
+                background-color: rgb(41, 41, 41);
+            }
         }
     }
 }

@@ -25,6 +25,7 @@ const Customers = () => {
     const [cnpj, setCnpj] = useState('')
     const [corporateReason, setCorporateReason] = useState('')
     const [logo, setLogo] = useState('')
+    const [customerId, setCustomerId] = useState('')
 
     useEffect(() => {
         const getCustomers = async () => {
@@ -62,9 +63,13 @@ const Customers = () => {
                 setSecondTell(customer.secondTell)
                 setCnpj(customer.cnpj)
                 setLogo(customer.logo)
+                setCustomerId(customer.id)
             }
             }>
-                <img src={customer.logo ? customer.logo : defaultAvatar} alt="" className='avatar' />
+                <img src={customer.logo ? customer.logo : defaultAvatar}
+                    alt=""
+                    className={customer.logo ? 'avatar avatar-logo' : 'avatar'}
+                />
                 <div className='customer-data-container'>
                     <p>{customer.name}</p>
                     <p>{customer.email}</p>
@@ -84,6 +89,7 @@ const Customers = () => {
             cnpj={cnpj}
             corporateReason={corporateReason}
             logo={logo}
+            customerId={customerId}
         />}
         {loading && <img src={loadingIcon} alt="" className='loading-initial' />}
 
