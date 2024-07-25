@@ -59,15 +59,27 @@ button {
 
 .sub-title {
     margin: 40px 0px 5px 40px;
-    animation: fadeInInput 400ms;
+    animation: fadeInCustomerCard 400ms;
 }
 
 .description {
     margin-left: 40px;
-    animation: fadeInInput 400ms;
+    animation: fadeInCustomerCard 400ms;
 }
 
 @keyframes fadeInInput {
+    0% {
+        opacity: 0;
+        margin-left: -40px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-left: 0px;
+    }
+}
+
+@keyframes fadeInCustomerCard {
     0% {
         opacity: 0;
         margin-left: 10px;

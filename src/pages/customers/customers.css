@@ -49,7 +49,7 @@
         transition: 150ms;
         display: flex;
         align-items: center;
-        animation: fadeInInput 400ms;
+        animation: fadeInCustomerCard 400ms;
         cursor: pointer;
     }
 

@@ -94,7 +94,6 @@ const CreateCustomer = () => {
 
         <form onSubmit={handleSubmit}>
             <label>
-                Nome completo:<br />
                 <input
                     type="text"
                     value={name}
@@ -105,7 +104,6 @@ const CreateCustomer = () => {
             </label>
 
             <label>
-                Email:<br />
                 <input
                     type="email"
                     value={email}
@@ -116,7 +114,6 @@ const CreateCustomer = () => {
             </label>
 
             <label>
-                Telefone principal:<br />
                 <input
                     type="tel"
                     value={tel}
@@ -127,17 +124,15 @@ const CreateCustomer = () => {
             </label>
 
             <label>
-                Telefone alternativo (opcional):<br />
                 <input
                     type="tel"
                     value={secondTell}
                     onChange={(e) => { setSecondTell(e.target.value) }}
-                    placeholder='Telefone secundário:'
+                    placeholder='Telefone alternativo (opicional):'
                 /><br />
             </label>
 
             <label>
-                Razão social:<br />
                 <input
                     type="text"
                     value={corporateReason}
@@ -148,7 +143,6 @@ const CreateCustomer = () => {
             </label>
 
             <label>
-                CNPJ:<br />
                 <input
                     type="text"
                     value={cnpj}
@@ -159,10 +153,9 @@ const CreateCustomer = () => {
             </label>
 
             <label>
-                Logo (opcional):<br />
                 <input
                     type="text"
-                    placeholder='Inserir url da imagem:'
+                    placeholder='Inserir url da imagem (opicional):'
                     value={logo}
                     onChange={(e) => { setLogo(e.target.value) }}
                 />

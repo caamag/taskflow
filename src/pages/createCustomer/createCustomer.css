@@ -1,17 +1,21 @@
 .create-user-container {
 
     & form {
-        margin-top: 50px;
+        width: 100%;
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     & label {
-        font-size: 1.4rem;
-        margin-left: 40px;
-        animation: fadeInInput 400ms;
+        width: 100%;
+        text-align: center;
     }
 
     & input {
-        width: 400px;
+        width: 50%;
+        margin: 0 auto;
         padding: 10px;
         background-color: rgb(225, 225, 225);
         font-size: 1.8rem;
@@ -21,7 +25,6 @@
         font-style: normal;
         color: rgb(96, 96, 96);
         margin-bottom: 15px;
-        margin-left: 40px;
         animation: fadeInInput 400ms;
     }
 
@@ -30,29 +33,29 @@
     }
 
     & button {
-        margin: 20px 10px 0px 0px;
-        width: 150px;
+        width: 50%;
         height: 35px;
+        padding: 10px;
+        margin-top: 10px;
         color: white;
         background-color: rgb(40, 40, 40);
         border-radius: 0px;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 
     & .clear-button {
         background: none;
         color: rgb(40, 40, 40);
         border: solid 1px rgb(40, 40, 40);
-        margin-left: 40px;
     }
 
     & button:hover {
-        width: 160px;
+        width: 51%;
     }
 }
 
 .loading-icon {
     width: 40px;
     height: 40px;
-    margin-left: 100px;
+    margin: 0 auto;
 }
