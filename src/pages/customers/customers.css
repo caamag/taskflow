@@ -2,42 +2,6 @@
 
     overflow-y: auto;
 
-    .search {
-        padding-left: 40px;
-        margin-top: 20px;
-        width: 50%;
-        height: 80px;
-        display: flex;
-        align-items: center;
-    }
-
-    .search-inner {
-        width: 400px;
-        height: 45px;
-        border: solid 1px rgb(230, 230, 230);
-        margin-right: 100px;
-        margin-bottom: 50px;
-        display: flex;
-        align-items: center;
-        border-radius: 5px;
-        animation: fadeInOpacity 400ms;
-
-        & img {
-            width: 15px;
-            height: auto;
-            margin-left: 15px;
-            filter: invert(50%);
-        }
-
-        & input {
-            width: 80%;
-            height: 90%;
-            margin-left: 10px;
-            font-family: Arial, Helvetica, sans-serif;
-            color: rgb(190, 190, 190);
-        }
-    }
-
     .customer-details {
         position: relative;
         margin: 0px 0px 15px 40px;
@@ -51,10 +15,6 @@
         align-items: center;
         animation: fadeInCustomerCard 400ms;
         cursor: pointer;
-    }
-
-    .delete {
-        display: none;
     }
 
     .customer-details:hover {

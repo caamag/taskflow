@@ -25,7 +25,6 @@
         font-style: normal;
         color: rgb(96, 96, 96);
         margin-bottom: 15px;
-        animation: fadeInInput 400ms;
     }
 
     & input:focus {

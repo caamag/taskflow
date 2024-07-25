@@ -20,7 +20,7 @@ const Salutation = ({ userName }) => {
         },
         {
             title: 'Novo Projeto',
-            url: '/customers'
+            url: '/projects/new'
         }
     ]
 

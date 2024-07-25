@@ -6,9 +6,10 @@ import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../../firebase/config'
 import CustomerCard from '../../components/customerCard/card'
 import NoContent from '../../components/noContent/noContent'
+import Subtitle from '../../components/subtitle/subtitle'
+import Query from '../../components/query/query'
 
 //images
-import searchIcon from './assets/search.png'
 import defaultAvatar from './assets/avatar.png'
 import loadingIcon from '../../../public/loading.jpg'
 
@@ -54,19 +55,9 @@ const Customers = () => {
     }
 
     return <div className='container customer-container'>
-        <h2 className='sub-title'>Meus clientes</h2>
-        <p className='description'>Aqui você consegue visualizar todos os seus clientes.</p>
-        <div className='search'>
-            <div className='search-inner'>
-                <img src={searchIcon} alt="" />
-                <input
-                    type="text"
-                    placeholder='Pesquisar:'
-                    value={search}
-                    onChange={(e) => { setSearch(e.target.value) }}
-                />
-            </div>
-        </div>
+        <Subtitle subtitle={'Meus clientes'} description={'Aqui você consegue visualizar todos os seus clientes.'} />
+
+        <Query search={search} setSearch={setSearch} />
 
         {!loading && customers.map(customer => (
             <div className={`customer-details ${handleSearch(customer.name, customer.email, customer.corporateReason)}`}

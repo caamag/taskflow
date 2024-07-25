@@ -1,0 +1,41 @@
+.new-project-container {
+    & form {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & input,
+        & textarea,
+        & select {
+            width: 50%;
+            padding: 10px;
+            background-color: rgb(225, 225, 225);
+            font-size: 1.8rem;
+            font-family: "Manrope", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            color: rgb(96, 96, 96);
+            margin-bottom: 15px;
+        }
+
+        & input:focus,
+        & textarea:focus {
+            border: solid 1px rgb(40, 40, 40);
+        }
+
+        & textarea {
+            min-height: 100px;
+            border: none;
+        }
+
+        & select {
+            width: 52%;
+            border: none;
+        }
+    }
+}

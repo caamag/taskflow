@@ -1,0 +1,25 @@
+.search-inner {
+    width: 400px;
+    height: 45px;
+    border: solid 1px rgb(230, 230, 230);
+    margin: 20px 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    animation: fadeInOpacity 400ms;
+
+    & img {
+        width: 15px;
+        height: auto;
+        margin-left: 15px;
+        filter: invert(50%);
+    }
+
+    & input {
+        width: 80%;
+        height: 90%;
+        margin-left: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(190, 190, 190);
+    }
+}

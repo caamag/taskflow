@@ -6,6 +6,7 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 import { useAuthValue } from '../../context/authContext'
 import PopupError from '../../components/popupError/popup'
 import PopupSuccess from '../../components/popupSuccess/popupSucess'
+import Subtitle from '../../components/subtitle/subtitle'
 import loadingIcon from '../../../public/loading.jpg'
 
 const CreateCustomer = () => {
@@ -86,8 +87,7 @@ const CreateCustomer = () => {
     }
 
     return <div className='container create-user-container'>
-        <h2 className='sub-title'>Adicionar novo cliente</h2>
-        <p className='description'>Adicione novos clientes e relacione-os com os seus novos projetos.</p>
+        <Subtitle subtitle={'Adicionar novo cliente'} description={'Adicione novos clientes e relacione-os com os seus novos projetos.'} />
 
         {error && <PopupError errorMessage={errorMessage} />}
         {success && <PopupSuccess successMessage={'Cliente criado com sucesso!'} />}
