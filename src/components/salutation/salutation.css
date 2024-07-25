@@ -1,0 +1,159 @@
+.salutation-container {
+    position: relative;
+    width: 60%;
+    height: 30vh;
+    max-width: 1100px;
+    background-color: white;
+    border: solid 2px rgb(230, 230, 230);
+    box-shadow: 0px 0px 15px rgb(220, 220, 220);
+    border-radius: 20px;
+    margin: 50px 40px;
+    padding: 40px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadeInSalutation 500ms;
+
+    & .salutation-title {
+        font-weight: 500;
+        color: rgb(41, 41, 41);
+    }
+
+    & .salutation-subtitle {
+        font-weight: 300;
+    }
+
+    & .grafic {
+        position: absolute;
+        width: 40%;
+        height: auto;
+        right: 10%;
+        bottom: 5%;
+    }
+
+    & .primary-list {
+        display: flex;
+        margin-top: 40px;
+        width: 200px;
+        height: 50px;
+        justify-content: space-evenly;
+        align-items: center;
+
+        & li {
+            list-style: none;
+            font-size: 14px;
+            transition: 150ms;
+            padding: 10px 20px;
+            border-radius: 4px;
+
+            & a {
+                text-decoration: none;
+                color: rgb(181, 181, 181);
+                display: flex;
+                align-items: center;
+            }
+
+            & a:hover {
+                text-decoration: underline;
+            }
+
+            & img {
+                width: auto;
+                height: 20px;
+                margin: 3px;
+            }
+        }
+
+        & li:hover {
+            background-color: rgb(230, 230, 230);
+        }
+
+        & li:hover>a {
+            color: rgb(41, 41, 41);
+        }
+    }
+
+    & .home-categories {
+        position: absolute;
+        width: 30%;
+        height: 100%;
+        right: 40px;
+        top: 0px;
+        bottom: 0px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        animation-name: fadeInCategorie;
+        animation-delay: 500ms;
+        animation-duration: 500ms;
+
+        & a {
+            width: 100%;
+            margin: 10px;
+            text-decoration: none;
+            color: rgb(41, 41, 41);
+        }
+
+        & .categorie {
+            width: 90%;
+            height: 50px;
+            padding: 10px;
+            border: 1px solid rgb(41, 41, 41);
+            background-color: rgb(41, 41, 41);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            transition: 250ms;
+
+            & img {
+                width: 30px;
+                height: 30px;
+                margin: 0px 20px;
+                filter: invert(100%);
+            }
+
+            & p {
+                color: white;
+            }
+        }
+
+        @media screen and (max-width: 1400px) {
+            & .categorie {
+                padding: 0px;
+            }
+        }
+
+        & .categorie:hover {
+            background-color: rgb(255, 255, 255);
+        }
+
+        & .categorie:hover>img {
+            filter: invert(0%);
+        }
+
+        & .categorie:hover>p {
+            color: rgb(41, 41, 41);
+        }
+    }
+}
+
+@keyframes fadeInSalutation {
+    0% {
+        margin-left: 0px;
+    }
+
+    100% {
+        margin-left: 40px;
+    }
+}
+
+@keyframes fadeInCategorie {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1px;
+    }
+}

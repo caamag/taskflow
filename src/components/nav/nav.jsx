@@ -13,9 +13,9 @@ const Nav = () => {
 
         <h3 className='nav-subtitle'>Projetos</h3>
         <ul className='navigate-list'>
-            <NavLink to={'/meusprojetos'}><li>Meus Projetos</li></NavLink>
-            <NavLink to={'/novoprojeto'}><li>Novo Projeto</li></NavLink>
-            <NavLink to={'/projetos/favoritos'}><li>Favoritos</li></NavLink>
+            <NavLink to={'/projects/my'}><li>Meus Projetos</li></NavLink>
+            <NavLink to={'/projects/new'}><li>Novo Projeto</li></NavLink>
+            <NavLink to={'/projects/favorite'}><li>Favoritos</li></NavLink>
         </ul>
 
         <h3 className='nav-subtitle'>Clientes</h3>
