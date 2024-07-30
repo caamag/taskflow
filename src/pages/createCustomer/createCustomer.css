@@ -2,6 +2,8 @@
 
     & form {
         width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
         margin-top: 80px;
         display: flex;
         flex-direction: column;
@@ -14,7 +16,7 @@
     }
 
     & input {
-        width: 50%;
+        width: 100%;
         margin: 0 auto;
         padding: 10px;
         background-color: rgb(225, 225, 225);
@@ -32,9 +34,10 @@
     }
 
     & button {
-        width: 50%;
+        width: 102%;
         height: 35px;
         padding: 10px;
+        margin: 0 auto;
         margin-top: 10px;
         color: white;
         background-color: rgb(40, 40, 40);
@@ -49,7 +52,7 @@
     }
 
     & button:hover {
-        width: 51%;
+        width: 104%;
     }
 }
 
