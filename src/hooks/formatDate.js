@@ -9,5 +9,8 @@ export const formatDate = (dateString) => {
     const year = date.getFullYear()
     const dayOfWeek = daysOfWeek[date.getDay()]
 
-    return `${day} ${month} ${year} - ${dayOfWeek}`
+    return {
+        dateWithDayWeek: `${day} ${month} ${year} - ${dayOfWeek}`,
+        dateWithoutDayWeek: `${day} ${month} ${year}`
+    }
 }

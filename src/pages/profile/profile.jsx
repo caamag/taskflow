@@ -11,14 +11,13 @@ import loadingIcon from '../../../public/loading.jpg'
 
 const Profile = () => {
 
+    const { loading, updateProfilePicture, auth } = useAuthentication()
+    const defaultURLPhoto = 'https://static.vecteezy.com/system/resources/thumbnails/002/387/693/small_2x/user-profile-icon-free-vector.jpg'
+    const user = auth.currentUser;
+
     const [urlPicture, setUrlPicture] = useState('');
     const [formPicture, setformPicture] = useState(false);
     const [error, setError] = useState(false)
-
-    const { loading, error: authError, updateProfilePicture, auth } = useAuthentication()
-
-    const defaultURLPhoto = 'https://static.vecteezy.com/system/resources/thumbnails/002/387/693/small_2x/user-profile-icon-free-vector.jpg'
-    const user = auth.currentUser;
 
     async function handleUpdatePicture(e) {
         e.preventDefault()
@@ -124,8 +123,8 @@ const Profile = () => {
             {!profileLoading && <button type='submit' className='update-profile'>Atualizar</button>}
 
             <h4>Dados da conta:</h4>
-            <p>Data de criação da conta:  {formatDate(user.metadata.creationTime)}</p>
-            <p>Último login: {formatDate(user.metadata.lastSignInTime)}</p>
+            <p>Data de criação da conta:  {formatDate(user.metadata.creationTime).dateWithDayWeek}</p>
+            <p>Último login: {formatDate(user.metadata.lastSignInTime).dateWithDayWeek}</p>
         </form>
     </div>
 

@@ -17,6 +17,7 @@ import Customers from './pages/customers/customers';
 import CreateCustomer from './pages/createCustomer/createCustomer';
 import NotFound from './pages/notFound/notFound';
 import NewProject from './pages/newProject/newProject';
+import Projects from './pages/projects/projects';
 
 //components
 import Nav from './components/nav/nav';
@@ -54,6 +55,7 @@ function App() {
           <Route path='/customers' element={user ? <Customers /> : <Navigate to={'/login'} />}></Route>
           <Route path='/customer/create' element={user ? <CreateCustomer /> : <Navigate to={'/login'} />}></Route>
           <Route path='/projects/new' element={user ? <NewProject /> : <Navigate to={'/login'} />}></Route>
+          <Route path='/projects/my' element={user ? <Projects /> : <Navigate to={'/login'} />}></Route>
           <Route path='*' element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>

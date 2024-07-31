@@ -1,0 +1,111 @@
+.projects-container {
+
+    & .cards-container {
+        width: 90%;
+        margin-left: 40px;
+        display: flex;
+        flex-wrap: wrap;
+
+        & .card {
+            width: 300px;
+            height: 350px;
+            border: solid 1.5px rgb(210, 210, 210);
+            border-radius: 15px;
+            margin: 20px 20px 0px 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: 150ms;
+
+            & div {
+                width: 95%;
+            }
+        }
+
+        & .card:hover {
+            scale: 1.025;
+        }
+
+        .content {
+            height: 70%;
+            border-radius: 10px;
+            position: relative;
+
+            .avatar {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 25px;
+                height: auto;
+                background-color: white;
+                padding: 10px;
+                border-radius: 100%;
+            }
+
+            .subtitle {
+                font-size: 14px;
+                width: 120px;
+                padding: 4px;
+                background-color: white;
+                border-radius: 20px;
+                text-align: center;
+                margin: 8px;
+            }
+
+            p {
+                width: 70%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 14px;
+                font-weight: bold;
+                margin: 25px 0px 0px 10px;
+            }
+
+            h2 {
+                width: 70%;
+                margin: 10px;
+                line-height: 32px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        .low {
+            background-color: rgb(184, 255, 238, 0.7);
+        }
+
+        .medium {
+            background-color: rgb(255, 255, 181);
+        }
+
+        .high {
+            background-color: rgb(254, 180, 180);
+        }
+
+        .details {
+            height: 26%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .price {
+                font-size: 16px;
+                margin: 10px;
+            }
+
+            button {
+                background-color: rgb(0, 0, 0);
+                color: white;
+                padding: 10px;
+                margin: 10px;
+            }
+
+            button:hover {
+                padding: 10px 13px;
+            }
+        }
+    }
+}

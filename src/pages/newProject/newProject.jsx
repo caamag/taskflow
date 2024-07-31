@@ -22,6 +22,7 @@ const NewProject = () => {
     const [projectName, setProjectName] = useState('')
     const [price, setPrice] = useState('')
     const [details, setDetails] = useState('')
+    const [priority, setPriority] = useState('')
     const [customerSelected, setCustomerSelected] = useState('')
 
     const { user } = useAuthValue()
@@ -45,9 +46,16 @@ const NewProject = () => {
     const handleCreateProject = async (e) => {
         e.preventDefault();
 
-        if (customerSelected === '' || customerSelected === '-') {
+        if (priority === '' || priority === 'Prioridade:') {
             setError(true)
-            setErrorMessage('Selecione um cliente.')
+            setErrorMessage('Selecione a prioridade!')
+            setTimeout(() => { setError(false) }, 5000)
+            return;
+        }
+
+        if (customerSelected === '' || customerSelected === 'Cliente:') {
+            setError(true)
+            setErrorMessage('Selecione um cliente!')
             setTimeout(() => { setError(false) }, 5000)
             return;
         }
@@ -58,8 +66,10 @@ const NewProject = () => {
                 projectName,
                 price: Number(price),
                 details,
+                priority,
                 customerSelected,
                 createdAt: serverTimestamp(),
+                lastUpdate: serverTimestamp(),
             })
 
             setSuccess(true)
@@ -68,6 +78,7 @@ const NewProject = () => {
             setProjectName('')
             setPrice('')
             setDetails('')
+            setPriority('')
             setCustomerSelected('')
         } catch (error) {
             setError(true)
@@ -107,8 +118,15 @@ const NewProject = () => {
                     onChange={(e) => { setDetails(e.target.value) }}
                 ></textarea>
 
+                <select value={priority} onChange={(e) => { setPriority(e.target.value) }}>
+                    <option value="">Prioridade:</option>
+                    <option value="low">Baixa</option>
+                    <option value="medium">Média</option>
+                    <option value="high">Alta</option>
+                </select>
+
                 <select value={customerSelected} onChange={(e) => { setCustomerSelected(e.target.value) }}>
-                    <option>-</option>
+                    <option>Cliente:</option>
                     {customers.map(customer => (
                         <option
                             value={customer.name}
