@@ -1,43 +1,27 @@
 
 import './projects.css'
-import { useState, useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
 import { useAuthValue } from '../../context/authContext';
-import { db } from '../../firebase/config';
+import { useFetchDocs } from '../../hooks/useDocs';
 
 import Subtitle from '../../components/subtitle/subtitle';
 import Query from '../../components/query/query';
-import { formatDate } from '../../hooks/formatDate';
 
 //images
 import defaultAvatar from '../customers/assets/avatar.png'
 
-
 const Projects = () => {
 
-    const [projetcs, setProjects] = useState([]);
-    const [loading, setLoading] = useState(false);
-
     const { user } = useAuthValue()
+    const { loading, doc: docProject } = useFetchDocs(user.uid, 'Projetos')
 
-    useEffect(() => {
-        const getProjects = async () => {
-            setLoading(true)
-            const userId = user.uid;
-            const querySnapshot = await getDocs(collection(db, 'users', userId, 'Projetos'))
-            const projectList = querySnapshot.docs.map(doc => ({
-                id: doc.id,
-                ...doc.data()
-            }))
-            projectList.sort((a, b) => b.createdAt - a.createdAt)
-            setProjects(projectList)
-            setLoading(false)
+    const formatDate = (date) => {
+        const newdate = new Date(date * 1000)
+
+        return {
+            month: newdate.toString().split(' ')[1],
+            day: newdate.toString().split(' ')[2]
         }
-        getProjects()
-    }, [])
-
-    console.log(projetcs);
-
+    }
 
     return <div className='container projects-container'>
         <Subtitle
@@ -47,12 +31,12 @@ const Projects = () => {
         <Query />
 
         {!loading && <div className='cards-container'>
-            {projetcs.map(project => (
+            {docProject.map(project => (
                 <div className={`card`}>
                     <div className={`content ${project.priority}`}>
                         <img src={defaultAvatar} alt="" className='avatar' />
-                        <h4 className='subtitle'>01 junho 2024</h4>
-                        <p>{project.customerSelected}</p>
+                        <h4 className='subtitle'>{formatDate(project.createdAt).day} {formatDate(project.createdAt).month} {project.yearCreation}</h4>
+                        <p>{project.customerSelected.split('_')[0]}</p>
                         <h2>
                             {project.projectName.split(' ')[0]} <br />
                             {project.projectName.split(' ').splice(1).map(text => (`${text} `))}

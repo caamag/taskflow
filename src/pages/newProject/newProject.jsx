@@ -3,12 +3,13 @@ import './newProject.css'
 import loadingIcon from '../../../public/loading.jpg'
 
 import { db } from '../../firebase/config'
-import { collection, getDocs, addDoc, serverTimestamp } from 'firebase/firestore'
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 import { useState, useEffect } from 'react'
 import { useAuthValue } from '../../context/authContext'
 import PopupError from '../../components/popupError/popup'
 import PopupSuccess from '../../components/popupSuccess/popupSucess'
 import Subtitle from '../../components/subtitle/subtitle'
+import { useFetchDocs } from '../../hooks/useDocs'
 
 
 const NewProject = () => {
@@ -17,7 +18,6 @@ const NewProject = () => {
     const [error, setError] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
     const [success, setSuccess] = useState(false)
-    const [customers, serCustomers] = useState([])
 
     const [projectName, setProjectName] = useState('')
     const [price, setPrice] = useState('')
@@ -28,20 +28,7 @@ const NewProject = () => {
     const { user } = useAuthValue()
     const userId = user.uid
 
-    useEffect(() => {
-        const getCustomers = async () => {
-            setLoading(true)
-            const querySnapshot = await getDocs(collection(db, 'users', userId, 'Clientes'))
-            const customerList = querySnapshot.docs.map(doc => ({
-                id: doc.id,
-                ...doc.data()
-            }))
-            customerList.sort((a, b) => b.createdAt - a.createdAt)
-            serCustomers(customerList)
-            setLoading(false)
-        }
-        getCustomers()
-    }, [])
+    const { doc: docCustomer } = useFetchDocs(user.uid, 'Clientes')
 
     const handleCreateProject = async (e) => {
         e.preventDefault();
@@ -67,9 +54,11 @@ const NewProject = () => {
                 price: Number(price),
                 details,
                 priority,
+                isFavorite: false,
                 customerSelected,
                 createdAt: serverTimestamp(),
                 lastUpdate: serverTimestamp(),
+                yearCreation: new Date().getFullYear()
             })
 
             setSuccess(true)
@@ -127,9 +116,9 @@ const NewProject = () => {
 
                 <select value={customerSelected} onChange={(e) => { setCustomerSelected(e.target.value) }}>
                     <option>Cliente:</option>
-                    {customers.map(customer => (
+                    {docCustomer.map(customer => (
                         <option
-                            value={customer.name}
+                            value={customer.name + '_' + customer.id}
                             key={customer.id}>
                             {customer.name}
                         </option>
