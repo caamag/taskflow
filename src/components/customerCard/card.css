@@ -19,16 +19,6 @@
         display: flex;
         justify-content: space-evenly;
 
-        & .close-card {
-            position: absolute;
-            padding: 10px 15px;
-            font-size: 1.6rem;
-            color: white;
-            right: 20px;
-            top: 20px;
-            background-color: rgb(41, 41, 41);
-        }
-
         & .close-card:hover {
             background-color: rgb(60, 60, 60);
         }

@@ -49,9 +49,8 @@ const Customers = () => {
     const handleSearch = (name, email, corporateReason) => {
         if (name.includes(search) || email.includes(search) || corporateReason.includes(search)) {
             return ''
-        } else {
-            return 'delete'
         }
+        return 'delete'
     }
 
     return <div className='container customer-container'>

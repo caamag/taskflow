@@ -58,6 +58,16 @@ button {
     transition: 150ms;
 }
 
+.close-card {
+    position: absolute;
+    padding: 10px 15px;
+    font-size: 1.6rem;
+    color: white;
+    right: 20px;
+    top: 20px;
+    background-color: rgb(41, 41, 41);
+}
+
 .delete {
     display: none !important;
 }
