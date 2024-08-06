@@ -16,12 +16,105 @@
         height: 60%;
         border-radius: 8px;
         background-color: white;
+
+        & .card-btns {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            width: 300px;
+            height: 35px;
+            display: flex;
+            flex-direction: row;
+
+            & button {
+                width: 50%;
+                height: 100%;
+                margin: 3px;
+                color: white
+            }
+
+            & button:hover {
+                width: 52%;
+            }
+
+            & .delete-customer {
+                background-color: rgb(255, 60, 60);
+            }
+
+            & .update-user {
+                background-color: rgb(41, 41, 41);
+            }
+        }
     }
 
     @media screen and (max-width: 1400px) {
         & .card {
             width: 75%;
             height: 75%;
+        }
+    }
+
+    .card-content {
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+
+        & div {
+            width: 50%;
+            height: 100%;
+        }
+
+        & .details-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    .details-text {
+        min-width: 90%;
+        max-width: 90%;
+        min-height: 50%;
+        max-height: 50%;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .project-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        & input {
+            width: 70%;
+            margin: 0 auto;
+            padding: 10px;
+            font-size: 1.8rem;
+            font-family: "Manrope", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            color: rgb(96, 96, 96);
+            background-color: rgb(225, 225, 225);
+        }
+
+        label {
+            font-size: 1.6rem;
+        }
+
+        & [type="checkbox"] {
+            width: 50px;
+            margin-left: 40px;
+            cursor: pointer;
+        }
+
+        & select {
+            width: 75%;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: rgb(225, 225, 225);
+            border: none;
         }
     }
 }

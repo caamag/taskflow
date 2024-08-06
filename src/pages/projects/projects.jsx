@@ -22,7 +22,6 @@ const Projects = () => {
 
     const [projectName, setProjectName] = useState('')
     const [customer, setCustomer] = useState('')
-    const [priority, setPriority] = useState('')
     const [price, setPrice] = useState('')
     const [details, setDetails] = useState('')
     const [isFavorite, setIsFavorite] = useState()
@@ -78,7 +77,11 @@ const Projects = () => {
                             <button
                                 onClick={() => {
                                     setCardVisible(true)
-
+                                    setProjectName(project.projectName)
+                                    setCustomer(project.customerSelected)
+                                    setPrice(project.price)
+                                    setDetails(project.details)
+                                    setIsFavorite(project.isFavorite)
                                 }}>
                                 detalhes
                             </button>
@@ -90,7 +93,11 @@ const Projects = () => {
 
         {cardVisible && <ProjectCard
             setCardVisible={setCardVisible}
-
+            projectName={projectName}
+            customerSelected={customer}
+            price={price}
+            details={details}
+            isFavorite={isFavorite}
         />}
 
         {loading && <img alt='loading icon' src={loadingIcon} className='loading-initial' />}
