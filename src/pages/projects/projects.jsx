@@ -8,6 +8,7 @@ import loadingIcon from '../../../public/loading.jpg'
 import Subtitle from '../../components/subtitle/subtitle';
 import Query from '../../components/query/query';
 import ProjectCard from '../../components/projectCard/projectCard';
+import NoContent from '../../components/noContent/noContent';
 
 //images
 import defaultAvatar from '../customers/assets/avatar.png'
@@ -56,7 +57,7 @@ const Projects = () => {
         />
         <Query search={search} setSearch={setSearch} />
 
-        {!loading && <div className='cards-container'>
+        {!loading && docProject.length > 0 && <div className='cards-container'>
             {docProject.map(project => (
                 <>
                     <div className={`card ${handleSearch(project.projectName, project.customerSelected, project.price)}`}>
@@ -110,6 +111,13 @@ const Projects = () => {
         />}
 
         {loading && <img alt='loading icon' src={loadingIcon} className='loading-initial' />}
+
+        {docProject.length < 1 &&
+            <NoContent
+                endpoint={'/projects/new'}
+                linkText={'Criar novo projeto'}
+            />
+        }
     </div>
 }
 

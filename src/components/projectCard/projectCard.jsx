@@ -69,7 +69,6 @@ const ProjectCard = ({
         }
     }
 
-
     return <div className='project-card-container'>
         {success && <PopupSuccess successMessage={'Projeto atualizado com sucesso'} />}
         {error && <PopupError errorMessage={'Erro! Tente mais tarde'} />}
