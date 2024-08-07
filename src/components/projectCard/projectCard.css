@@ -117,4 +117,10 @@
             border: none;
         }
     }
+
+    .last-update {
+        font-size: 1.2rem;
+        color: gray;
+        margin-top: 15px;
+    }
 }

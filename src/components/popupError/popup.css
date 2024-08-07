@@ -12,6 +12,7 @@
     align-items: center;
     box-shadow: 0px 0px 10px rgb(204, 204, 204);
     animation: fadeInPopup 250ms;
+    z-index: 10;
 
     & p {
         margin-left: 5px !important;

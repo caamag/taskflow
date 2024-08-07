@@ -25,6 +25,9 @@ const Projects = () => {
     const [price, setPrice] = useState('')
     const [details, setDetails] = useState('')
     const [isFavorite, setIsFavorite] = useState()
+    const [priority, setPriority] = useState('')
+    const [lastUpdate, setLastUpdate] = useState('')
+    const [projectId, setProjectId] = useState('')
 
     const formatDate = (date) => {
         const newdate = new Date(date * 1000)
@@ -82,6 +85,9 @@ const Projects = () => {
                                     setPrice(project.price)
                                     setDetails(project.details)
                                     setIsFavorite(project.isFavorite)
+                                    setPriority(project.priority)
+                                    setLastUpdate(project.lastUpdate)
+                                    setProjectId(project.id)
                                 }}>
                                 detalhes
                             </button>
@@ -98,6 +104,9 @@ const Projects = () => {
             price={price}
             details={details}
             isFavorite={isFavorite}
+            priority={priority}
+            lastUpdate={lastUpdate}
+            projectId={projectId}
         />}
 
         {loading && <img alt='loading icon' src={loadingIcon} className='loading-initial' />}
