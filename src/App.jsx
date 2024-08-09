@@ -18,13 +18,13 @@ import CreateCustomer from './pages/createCustomer/createCustomer';
 import NotFound from './pages/notFound/notFound';
 import NewProject from './pages/newProject/newProject';
 import Projects from './pages/projects/projects';
+import Finished from './pages/finished/finished';
 
 //components
 import Nav from './components/nav/nav';
 
 //images
 import loading from '../public/loading.jpg'
-
 
 function App() {
 
@@ -56,6 +56,7 @@ function App() {
           <Route path='/customer/create' element={user ? <CreateCustomer /> : <Navigate to={'/login'} />}></Route>
           <Route path='/projects/new' element={user ? <NewProject /> : <Navigate to={'/login'} />}></Route>
           <Route path='/projects/my' element={user ? <Projects /> : <Navigate to={'/login'} />}></Route>
+          <Route path='/projects/finished' element={user ? <Finished /> : <Navigate to={'/login'} />}></Route>
           <Route path='*' element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>

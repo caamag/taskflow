@@ -8,6 +8,7 @@ import { db } from '../../firebase/config';
 import { formatDate } from '../../hooks/formatDate';
 import PopupSuccess from '../popupSuccess/popupSucess';
 import PopupError from '../popupError/popup';
+import FinishModal from '../finishModal/modal';
 
 const ProjectCard = ({
     setCardVisible,
@@ -29,6 +30,7 @@ const ProjectCard = ({
     const [newCustomer, setNewCustomer] = useState();
     const [success, setSuccess] = useState(false)
     const [error, setError] = useState(false)
+    const [modal, setModal] = useState(false)
 
     const { user } = useAuthValue()
     const { doc: docCustomer } = useFetchDocs(user.uid, 'Clientes')
@@ -80,6 +82,10 @@ const ProjectCard = ({
                 <button className='delete-customer' onClick={deleteProject}>Deletar</button>
                 <button className='update-user' onClick={updateProject}>Salvar</button>
             </div>
+
+            <button className='finish-btn' onClick={() => { setModal(true) }}>Finalizar</button>
+
+            {modal && <FinishModal setModal={setModal} projectId={projectId} />}
 
             <div className='card-content'>
                 <div className='details-content'>

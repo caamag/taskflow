@@ -15,7 +15,7 @@ const Nav = () => {
         <ul className='navigate-list'>
             <NavLink to={'/projects/my'}><li>Meus Projetos</li></NavLink>
             <NavLink to={'/projects/new'}><li>Novo Projeto</li></NavLink>
-            <NavLink to={'/projects/favorite'}><li>Favoritos</li></NavLink>
+            <NavLink to={'/projects/finished'}><li>Finalizados</li></NavLink>
         </ul>
 
         <h3 className='nav-subtitle'>Clientes</h3>

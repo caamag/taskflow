@@ -58,7 +58,8 @@ const NewProject = () => {
                 customerSelected,
                 createdAt: serverTimestamp(),
                 lastUpdate: serverTimestamp(),
-                yearCreation: new Date().getFullYear()
+                yearCreation: new Date().getFullYear(),
+                isFinished: false,
             })
 
             setSuccess(true)

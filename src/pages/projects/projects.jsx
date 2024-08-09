@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useAuthValue } from '../../context/authContext';
 import { useFetchDocs } from '../../hooks/useDocs';
 import loadingIcon from '../../../public/loading.jpg'
+import starIcon from '../../../public/star.png'
 
 import Subtitle from '../../components/subtitle/subtitle';
 import Query from '../../components/query/query';
@@ -17,6 +18,8 @@ const Projects = () => {
 
     const { user } = useAuthValue()
     const { loading, doc: docProject } = useFetchDocs(user.uid, 'Projetos')
+    const activeProjects = docProject.filter(doc => !doc.isFinished)
+
 
     const [search, setSearch] = useState('')
     const [cardVisible, setCardVisible] = useState(false)
@@ -29,6 +32,7 @@ const Projects = () => {
     const [priority, setPriority] = useState('')
     const [lastUpdate, setLastUpdate] = useState('')
     const [projectId, setProjectId] = useState('')
+    const [isClicked, setIsClicked] = useState(false)
 
     const formatDate = (date) => {
         const newdate = new Date(date * 1000)
@@ -57,10 +61,22 @@ const Projects = () => {
         />
         <Query search={search} setSearch={setSearch} />
 
-        {!loading && docProject.length > 0 && <div className='cards-container'>
-            {docProject.map(project => (
+        <button
+            className={`only-favorites-btn${isClicked ? ' clicked' : ''}`}
+            onClick={() => {
+                setIsClicked(!isClicked)
+            }}
+        >
+            Apenas favoritos
+        </button>
+
+        {!loading && activeProjects.length > 0 && <div className='cards-container'>
+            {activeProjects.map(project => (
                 <>
-                    <div className={`card ${handleSearch(project.projectName, project.customerSelected, project.price)}`}>
+                    <div className={`card 
+                        ${handleSearch(project.projectName, project.customerSelected, project.price)} 
+                        ${isClicked && !project.isFavorite ? 'delete' : ''}`
+                    }>
                         <div className={`content ${project.priority}`}>
                             <img src={defaultAvatar} alt="" className='avatar' />
                             <h4 className='subtitle'>{formatDate(project.createdAt).day} {formatDate(project.createdAt).month} {project.yearCreation}</h4>
@@ -74,6 +90,8 @@ const Projects = () => {
                                     project.priority === 'medium' ? ' Média' :
                                         project.priority === 'high' ? ' Alta' : ''}
                             </p>
+
+                            {project.isFavorite && <img src={starIcon} alt="star" className='favorite-icon' />}
                         </div>
 
                         <div className='details'>
@@ -112,7 +130,7 @@ const Projects = () => {
 
         {loading && <img alt='loading icon' src={loadingIcon} className='loading-initial' />}
 
-        {docProject.length < 1 &&
+        {!loading && activeProjects.length < 1 &&
             <NoContent
                 endpoint={'/projects/new'}
                 linkText={'Criar novo projeto'}
