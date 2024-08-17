@@ -1,0 +1,85 @@
+.finished-content {
+    width: 90%;
+    margin-left: 40px;
+
+    & .finish-container {
+        position: relative;
+        width: 80%;
+        height: 80px;
+        margin-bottom: 20px;
+        overflow-y: hidden;
+        border-radius: 5px;
+        background-color: rgb(41, 41, 41);
+        transition: 300ms;
+
+        & .project-title {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 80px;
+        }
+
+        & .correct-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0px 20px;
+            filter: invert(100%);
+        }
+
+        & h2 {
+            color: white;
+            margin: 0px 50px;
+            font-weight: 400;
+        }
+
+        & .arrow-icon {
+            position: absolute;
+            width: auto;
+            height: 20px;
+            filter: invert(100%);
+            right: 40px;
+            top: 30px;
+            cursor: pointer;
+            transition: 250ms;
+        }
+
+        & .arrow-icon:hover {
+            scale: 1.1;
+        }
+    }
+
+    & .project-card:hover {
+        scale: 1.01;
+    }
+
+    & .finish-content {
+        width: 94%;
+        height: 150px;
+        margin: 0 auto;
+        padding: 20px;
+        margin-top: 10px;
+        background-color: white;
+        display: flex;
+        justify-content: space-evenly;
+
+        & div {
+            width: 48%;
+            height: 100%;
+        }
+
+        & ul {
+            width: 100%;
+
+            & li {
+                list-style: none;
+                font-size: 16px;
+            }
+        }
+
+        .finish-details {
+            text-indent: 10px;
+            overflow-y: auto;
+            font-size: 16px;
+        }
+    }
+}
