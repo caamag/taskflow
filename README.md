@@ -1,19 +1,5 @@
 # 🗂️ Taskflow
 
-Gerenciador de tarefas feito com **React**, **TypeScript** e **Firebase**.  
-Autenticação via Firebase, tarefas por usuário e dados na nuvem (Firestore).
-
-<p align="left">
-  <a href="https://github.com/SEU_USUARIO/taskflow"><img alt="Repo size" src="https://img.shields.io/github/repo-size/SEU_USUARIO/taskflow?style=flat-square"></a>
-  <a href="https://github.com/SEU_USUARIO/taskflow/issues"><img alt="Issues" src="https://img.shields.io/github/issues/SEU_USUARIO/taskflow?style=flat-square"></a>
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-green?style=flat-square">
-</p>
-
-> **Demo/Screenshots**  
-> Adicione aqui GIFs ou imagens da interface (ex.: `./docs/preview-1.png`).
-
----
-
 ## ✨ Funcionalidades
 
 - 🔐 **Autenticação**: cadastro e login (email/senha) via Firebase Authentication.
