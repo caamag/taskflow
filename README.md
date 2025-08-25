@@ -6,7 +6,6 @@
 - ✅ **Tarefas**: criar, editar, concluir e excluir.
 - 👤 **Multiusuário**: cada usuário vê apenas suas próprias tarefas.
 - ☁️ **Persistência**: dados salvos no Firestore.
-- 📱 **Responsivo**: UI que se adapta a diferentes tamanhos de tela.
 
 ---
 
